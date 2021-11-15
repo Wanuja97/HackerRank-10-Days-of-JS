@@ -1,0 +1,30 @@
+/open end/g	g ->global(anywhere in string)
+/e+/		+ ->match one e or more than e
+/re*/		* ->match zero or more e 	ex:- it will match round(only r) ,restaurant(both r and o), street(r and ee)
+/.r/		. ->matches any character before r
+/\./		\. ->matches period character
+/.\./		-> matches period and any character before period. Ex:- e.
+/\w/		-> match any words
+/\s/		-> match any white spaces
+/\w{4}/		-> matches any word minimum 4 characters
+/\w{4,5}/	-> matches any word 4 to 5 characters
+/[fc]at/	-> matches word with starting from 'f' or 'c' and ends up with 'at'
+/[a-zA-Z]/	-> matches words which start from letter
+/(t|T)he/	-> matches words which start from Capital 'T' or Simple 't' any of these letters. Ex:- The or the
+/^T/		-> match the letter 'T' in the beginning of line 
+/T$/		-> match the letter 'T' at end of the statement
+/\.$/		-> checking period at end of the statement.
+/(?<=)[T|t]he.)/ -> returns each character after the word 'The' OR 'the'
+/.(?=at)/	-> any character followed by word at => letter 'C' in word Cat
+/\d/		-> checking for digit
+/\d{10}/	-> checking ten digit number
+/-?/		-> dash(-) optional
+^		-> asserts position at start of the string
+
+let re =  /^([aeiou]).*\1$/;
+
+1- ^ asserts position at start of the string
+2- 1st Capturing Group ([aeiou])
+3- .* matches any character (except newline) - between zero and unlimited times, as many times as possible, giving back as needed 		(greedy)
+4- \1 matches the same text as most recently matched by the 1st capturing group
+5- $ asserts position at the end of the string
